@@ -56,24 +56,24 @@ declare -A refs=(
 echo
 
 # Context Swaps
-read -p "Scripts context provider (leave blank if none): " context
+read -r -p "Scripts context provider (leave blank if none): " context
 if [[ $context != "" ]]; then
     echo "  *** INFO *** Replacing Context Dependant Calls."
-    for i in $(find -name \*.java);
+    while IFS= read -r -d '' file
     do
         for command in "${!refs[@]}";
-        do sed -i s/"$context.$command/${refs[$command]}/g" $i;
+        do sed -i s/"$context.$command/${refs[$command]}/g" "$file";
         done
-    done
+    done <  <(find . -name '*.java' -print0)
 fi
 
 # Non-Context Dependant Calls
 echo "  *** INFO *** Replacing Non-Context Dependant Calls."
-for i in $(find -name \*.java);
-do
-    for command in "${!refs[@]}";
-    do sed -i "s/$command/${refs[$command]}/g" $i;
-    done
-done
+    while IFS= read -r -d '' file
+    do
+      for command in "${!refs[@]}";
+      do sed -i "s/$command/${refs[$command]}/g" "$file";
+      done
+    done <  <(find . -name '*.java' -print0)
 
 echo "Update Complete!  TODO FIX IMPORTS"
