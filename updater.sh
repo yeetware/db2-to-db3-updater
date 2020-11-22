@@ -40,6 +40,7 @@ declare -A refs=(
     ["getWalking()"]="Walking"
     ["getDialogues()"]="Dialogues"
     ["getSkills()"]="Skills"
+    ["getSkillTracker()"]="SkillTracker"
     ["getInventory()"]="Inventory"
     ["getEquipment()"]="Equipment"
     ["getPlayerSettings()"]="PlayerSettings"
