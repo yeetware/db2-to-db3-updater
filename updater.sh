@@ -46,6 +46,7 @@ declare -A refs=(
     ["getPlayerSettings()"]="PlayerSettings"
     ["getPlayers()"]="Players"
     ["getMouse()"]="Mouse"
+    ["getClan()"]="Clan"
     ["getRandomManager()"]="Client.getInstance().getScriptManager().getCurrentScript().getRandomManager()"
 )
 
