@@ -48,6 +48,7 @@ declare -A refs=(
     ["getMouse()"]="Mouse"
     ["getClan()"]="Clan"
     ["getRandomManager()"]="Client.getInstance().getScriptManager().getCurrentScript().getRandomManager()"
+    ["getClient().getMenu()]"="Menu"]
 )
 
 # Printing the conversions
